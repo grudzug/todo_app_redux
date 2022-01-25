@@ -1,9 +1,9 @@
 import '../styles/TodoList.css'
 import Card from './Card'
-import AddTodo from './AddTodo';
-import FilterButton from './FilterButton';
-import { useContext, useState } from 'react'
-import { TodoContext } from '../contexts/TodoContext';
+import AddTodo from './AddTodo'
+import FilterButton from './FilterButton'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 // setting up filtering logic
 const filterMap = {
@@ -13,14 +13,16 @@ const filterMap = {
 }
 const filterNames = Object.keys(filterMap)
 
-export default function TodoList({  yourName }) {
+const selectTodos = (state) => state.todos
 
-    const { todos } = useContext(TodoContext)
+export default function TodoList({ user }) {
+
+    const todos = useSelector(selectTodos)
     const [filter, setFilter] = useState('Minden')
 
     return (
         <div className="todo-list">
-            <h2>Szia {yourName}! &#9996;</h2>
+            <h2>Szia {user}! &#9996;</h2>
             {filterNames.map(name => (
                 <FilterButton
                     key={name}
@@ -29,7 +31,7 @@ export default function TodoList({  yourName }) {
                     setFilter={setFilter}
                 />
             ))}
-            {todos.length > 0 ? <ul>
+            {todos?.length > 0 ? <ul>
                 {todos.filter(filterMap[filter]).map(todo => (
                     <Card key={todo.id} todo={todo}/>
                 ))}

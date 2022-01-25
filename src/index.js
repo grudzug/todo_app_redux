@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import './styles/globals.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import TodoContextProvider from "./contexts/TodoContext"
+import { Provider } from 'react-redux'
+import store from './redux/store'
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoContextProvider>
+    <Provider store={store}>
       <App />
-    </TodoContextProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

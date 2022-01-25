@@ -1,13 +1,14 @@
-import { useRef } from 'react'
 import '../styles/YourName.css'
+import { useRef } from 'react'
+import { useDispatch } from 'react-redux'
 
-export default function YourName({ setYourName }) {
+export default function YourName() {
 
     const nameInput = useRef("")
+    const dispatch = useDispatch()
 
     function saveYourName() {
-        localStorage.setItem("yourname", JSON.stringify(nameInput.current.value))
-        setYourName(nameInput.current.value)
+        dispatch({ type: "SET_USER", payload: nameInput.current.value })
     }
 
     return (

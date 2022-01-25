@@ -1,22 +1,20 @@
 import TodoList from './components/TodoList';
 import ClearStorage from './components/ClearStorage';
-import { useState } from 'react'
 import YourName from './components/YourName';
+import { useSelector } from 'react-redux'
+
+const selectUser = (state) => state.user
 
 function App() {
 
-    // getting the initial username from localstorage, if any.  
-    const [yourName, setYourName] = useState( () => {
-        const savedName = localStorage.getItem("yourname")
-        return savedName ? JSON.parse(savedName) : ""
-    })
+    const user = useSelector(selectUser)
 
     return (
         <div>
             <h1>Todo app</h1>
-            {!yourName ?
-                <YourName yourName={yourName} setYourName={setYourName} /> 
-                :   <TodoList yourName={yourName} />}
+            {!user ?
+                <YourName user={user.name} /> 
+                :   <TodoList user={user.name} />}
             <ClearStorage />
         </div>
     );

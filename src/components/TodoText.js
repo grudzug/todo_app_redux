@@ -1,14 +1,20 @@
-import { TodoContext } from '../contexts/TodoContext';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux'
 
 export default function TodoText({ todo }) {
 
-    const { dispatch } = useContext(TodoContext)
+    const dispatch = useDispatch()
     const [checked, setChecked] = useState(todo.completed)
 
     function handleChacked(e) {
         setChecked(e.target.checked)
-        dispatch({type:"COMPLETE_TODO", completed: e.target.checked, id: todo.id})
+        dispatch({
+            type:"COMPLETE_TODO", 
+            payload: {
+                completed: e.target.checked, 
+                id: todo.id,
+            },
+        })
     }
     
     return (

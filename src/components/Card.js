@@ -1,14 +1,15 @@
 import "../styles/Card.css"
-import { useState, useContext } from "react"
-import { useSpring, animated } from 'react-spring'
 import EditButton from "./EditButton"
 import DeleteButton from "./DeleteButton"
 import TodoText from "./TodoText"
-import { TodoContext } from "../contexts/TodoContext"
+import { useState } from "react"
+import { useSpring, animated } from 'react-spring'
+import { useDispatch } from 'react-redux'
+
 
 export default function Card({ todo }) {
 
-    const { dispatch } = useContext(TodoContext)
+   const dispatch = useDispatch()
 
     // if editing, show the input field, otherwise not
     const [isEditing, setIsEditing] = useState(false)
@@ -21,7 +22,7 @@ export default function Card({ todo }) {
     return (
         <animated.li style={animation}>
             {isEditing ? 
-                <input type="text"  className="edit" onChange={e => dispatch({type: "EDIT_TODO", editedText: e.target.value, id: todo.id})}/> 
+                <input type="text"  className="edit" onChange={e => dispatch({type: "EDIT_TODO", payload:{editedText: e.target.value, id: todo.id}})}/> 
                 :  <TodoText todo={todo}/>
             }
             <EditButton isEditing={isEditing} setIsEditing={setIsEditing}/>
