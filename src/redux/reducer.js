@@ -3,7 +3,7 @@ import { userSlice } from './reducers/userSlice'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-    // Define a top-level state field named `todos`, handled by `todosReducer`
+    // Define a top-level state field named `todos`, handled by `todosReducer`, same with user
     todos: todoSlice,
     user: userSlice
 })

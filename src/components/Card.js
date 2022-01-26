@@ -1,4 +1,3 @@
-import "../styles/Card.css"
 import EditButton from "./EditButton"
 import DeleteButton from "./DeleteButton"
 import TodoText from "./TodoText"
@@ -14,6 +13,7 @@ export default function Card({ todo }) {
     // if editing, show the input field, otherwise not
     const [isEditing, setIsEditing] = useState(false)
 
+    // very basic animation for showing new todo cards
     const animation = useSpring({
         from: { rotateX: 90 },
         to: { rotateX: 0 },
@@ -23,7 +23,7 @@ export default function Card({ todo }) {
         <animated.li style={animation}>
             {isEditing ? 
                 <input type="text"
-                        className="edit"
+                        className="edit-input"
                         onChange={e => dispatch({
                             type: "EDIT_TODO", 
                             payload:{

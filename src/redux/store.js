@@ -4,12 +4,12 @@ import { save, load } from "redux-localstorage-simple"
 
 const createStoreWithMiddleware 
     = applyMiddleware(
-        save({ states: ["todos", "user"] }) // Saving done here
+        save({ states: ["todos", "user"] }) // Saving user and todos to localstorage
     )(createStore)
 
 const store = createStoreWithMiddleware(
     rootReducer,    
-    load({ states: ["todos", "user"] }) // Loading done here
+    load({ states: ["todos", "user"] }) // Loading user and todos from localstorage
 )  
 
 export default store

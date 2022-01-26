@@ -1,9 +1,7 @@
-import "../styles/ClearStorage.css"
-
 export default function ClearStorage() {
 
     function handleClear() {
-        localStorage.clear()
+        localStorage.clear() // clearing localstorage
         alert("LocalStorage törölve, kérlek frissíts")
     }
 

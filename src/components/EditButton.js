@@ -3,6 +3,7 @@ import saveIcon from "../icons/save_icon.svg"
 
 export default function EditButton( {isEditing, setIsEditing} ) {
 
+    // initialy showing "edit icon", if editing showing "save icon"
     return (
         <button 
             className="icon" 

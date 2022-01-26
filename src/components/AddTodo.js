@@ -4,8 +4,11 @@ import { useDispatch } from 'react-redux'
 export default function AddTodo() {
     
     const dispatch = useDispatch()
+
+    // saving add-todo input field value
     const [todo, setTodo] = useState("")
 
+    // adding new "todo" to todos when form submitted
     function handleSubmit(e) {
         e.preventDefault()
         dispatch({
@@ -17,16 +20,15 @@ export default function AddTodo() {
 
     return (
         <form onSubmit={handleSubmit}>
-                <div className="input-wrapper">
+                <div className="add-todo">
                     <input 
                         type="text" 
-                        className="new-todo" 
                         value={todo} 
                         onChange={e => setTodo(e.target.value)}
                         placeholder="Feladat hozzáadása"
                         required 
                     />
-                    <button type="submit" className="add-btn">
+                    <button type="submit">
                         +
                     </button>
                 </div>

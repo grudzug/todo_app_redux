@@ -1,4 +1,3 @@
-import '../styles/YourName.css'
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux'
 
@@ -7,6 +6,7 @@ export default function YourName() {
     const nameInput = useRef("")
     const dispatch = useDispatch()
 
+    //saving username to user state
     function saveYourName() {
         dispatch({ type: "SET_USER", payload: nameInput.current.value })
     }
