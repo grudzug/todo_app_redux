@@ -13,7 +13,7 @@ function App() {
         <div>
             <h1>Todo app</h1>
             {!user ?
-                <YourName user={user.name} /> 
+                <YourName /> 
                 :   <TodoList user={user.name} />}
             <ClearStorage />
         </div>

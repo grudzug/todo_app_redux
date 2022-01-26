@@ -22,7 +22,16 @@ export default function Card({ todo }) {
     return (
         <animated.li style={animation}>
             {isEditing ? 
-                <input type="text"  className="edit" onChange={e => dispatch({type: "EDIT_TODO", payload:{editedText: e.target.value, id: todo.id}})}/> 
+                <input type="text"
+                        className="edit"
+                        onChange={e => dispatch({
+                            type: "EDIT_TODO", 
+                            payload:{
+                                editedText: e.target.value,
+                                id: todo.id
+                            },
+                        })}
+                /> 
                 :  <TodoText todo={todo}/>
             }
             <EditButton isEditing={isEditing} setIsEditing={setIsEditing}/>

@@ -66,3 +66,8 @@ li {
 li button:nth-child(2) {
   margin-left: auto;
 }
+
+li div {
+  display: flex;
+  align-items: center;
+}

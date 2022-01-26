@@ -31,11 +31,13 @@ export default function TodoList({ user }) {
                     setFilter={setFilter}
                 />
             ))}
-            {todos?.length > 0 ? <ul>
-                {todos.filter(filterMap[filter]).map(todo => (
-                    <Card key={todo.id} todo={todo}/>
-                ))}
-            </ul> : <h2>Add hozzá az első feladatod!</h2>}
+            {todos?.length > 0 ? 
+                <ul>
+                    {todos.filter(filterMap[filter]).map(todo => (
+                        <Card key={todo.id} todo={todo}/>
+                    ))}
+                </ul> 
+                    : <h2>Add hozzá az első feladatod!</h2>}
             <AddTodo />
         </div>
     )

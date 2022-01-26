@@ -8,7 +8,10 @@ export default function AddTodo() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch({type: "ADD_TODO", payload: todo})
+        dispatch({
+            type: "ADD_TODO",
+            payload: todo
+        })
         setTodo("")
     }
 
@@ -23,8 +26,10 @@ export default function AddTodo() {
                         placeholder="Feladat hozzáadása"
                         required 
                     />
-                    <button type="submit" className="add">+</button>
+                    <button type="submit" className="add-btn">
+                        +
+                    </button>
                 </div>
-            </form>
+        </form>
     )
 }
